@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CharlApp</string>
+    <string name="welcome_msg">Welcome to CharlApp!</string>
+    <string name="Btn_ir_registro">Don\'t have account? Sign Up!</string>
+    <string name="Btn_ir_logeo">Log In</string>
+    <string name="R_Et_nombre_usuario">Username</string>
+    <string name="R_Et_email">Email</string>
+    <string name="R_Et_password">Password</string>
+    <string name="R_Et_r_password">Repeat your password</string>
+    <string name="Btn_registrar">Register</string>
+</resources>

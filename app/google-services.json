@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "585930442273",
+    "project_id": "charlapp-2a591",
+    "storage_bucket": "charlapp-2a591.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585930442273:android:c03338046338b3663e8560",
+        "android_client_info": {
+          "package_name": "com.canodevs.charlapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvi9IsimnOg8XAkUKohVvQkwm3ctonPHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
