@@ -42,29 +42,6 @@ class Inicio : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater : MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_principal, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_salir -> {
-                // Sign out of Firebase
-                FirebaseAuth.getInstance().signOut()
-
-                // Navigate to the login activity
-                val intent = Intent(this@Inicio, Inicio::class.java)
-                Toast.makeText(applicationContext,"Has cerrado sesión", Toast.LENGTH_SHORT).show()
-                startActivity(intent)
-                return true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     private fun comprobarSesion() {
         firebaseUser = FirebaseAuth.getInstance().currentUser
         if (firebaseUser != null) {
