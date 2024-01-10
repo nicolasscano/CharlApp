@@ -9,4 +9,5 @@
     <string name="R_Et_password">Password</string>
     <string name="R_Et_r_password">Repeat your password</string>
     <string name="Btn_registrar">Register</string>
+    <string name="menu_salir">Log out</string>
 </resources>

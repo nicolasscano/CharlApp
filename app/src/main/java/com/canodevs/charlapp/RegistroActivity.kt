@@ -26,7 +26,7 @@ class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
-        supportActionBar?.title = "Registro"
+        supportActionBar!!.title = "Registro"
         inicializarVariables()
 
         Btn_registrar.setOnClickListener() {
