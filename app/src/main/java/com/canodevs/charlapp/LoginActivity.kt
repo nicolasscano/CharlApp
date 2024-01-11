@@ -6,35 +6,77 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var L_Et_email: EditText
+    private lateinit var L_Et_password: EditText
+    private lateinit var Btn_login: Button
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-    }
+        supportActionBar!!.title = "Login"
+        inicializarVariables()
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater : MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_principal, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_salir -> {
-                // Sign out of Firebase
-                FirebaseAuth.getInstance().signOut()
-
-                // Navigate to the login activity
-                val intent = Intent(this@LoginActivity, Inicio::class.java)
-                Toast.makeText(applicationContext,"Has cerrado sesión", Toast.LENGTH_SHORT).show()
-                startActivity(intent)
-                return true
-            }
-
-            else -> super.onOptionsItemSelected(item)
+        Btn_login.setOnClickListener {
+            ValidarDatos()
         }
+    }
+
+    private fun inicializarVariables() {
+        L_Et_email = findViewById(R.id.L_Et_email)
+        L_Et_password = findViewById(R.id.L_Et_password)
+        Btn_login = findViewById(R.id.Btn_Login)
+        auth = FirebaseAuth.getInstance()
+    }
+
+    private fun ValidarDatos() {
+        val email: String = L_Et_email.text.toString()
+        val password: String = L_Et_password.text.toString()
+
+        if (email.isEmpty()) {
+            Toast.makeText(applicationContext, "Escribe tu correo electrónico", Toast.LENGTH_SHORT)
+                .show()
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(applicationContext, "Escribe tu contraseña", Toast.LENGTH_SHORT).show()
+        } else {
+            LoginUsuario(email, password)
+        }
+
+
+    }
+
+    private fun LoginUsuario(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    Toast.makeText(
+                        applicationContext,
+                        "Inicio de sesión exitoso",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "Ha ocurrido un error",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }.addOnFailureListener { e ->
+                Toast.makeText(
+                    applicationContext,
+                    "{${e.message}}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
     }
 }

@@ -13,4 +13,8 @@
     <string name="Btn_registrar">Registrar</string>
 
     <string name="menu_salir">Cerrar sesión</string>
+
+    <string name="L_Et_email">Correo electrónico</string>
+    <string name="L_Et_password">Contraseña</string>
+    <string name="Btn_Login">Ingresar</string>
 </resources>
