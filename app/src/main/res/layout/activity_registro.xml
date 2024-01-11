@@ -62,6 +62,9 @@
                 android:id="@+id/R_Et_password"
                 android:hint="@string/R_Et_password"
                 android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_password"
+                android:padding="20dp"
+                android:drawablePadding="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -80,6 +83,9 @@
                 android:id="@+id/R_Et_r_password"
                 android:hint="@string/R_Et_r_password"
                 android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_password"
+                android:padding="20dp"
+                android:drawablePadding="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
