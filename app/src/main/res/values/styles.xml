@@ -7,6 +7,8 @@
         <item name="colorPrimary">#9C27B0</item>
         <item name="colorPrimaryDark">#673AB7</item>
         <item name="colorAccent">#3F51B5</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 

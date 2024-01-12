@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">CharlApp</string>
     <string name="welcome_msg">¡Bienvenido a CharlApp!</string>
-    
+
     <string name="nombre_desarrollador" translatable="false">Nicolás Cano de Celis</string>
     <string name="Btn_ir_registro">¿No tienes cuenta? ¡Regístrate!</string>
     <string name="Btn_ir_logeo">Iniciar sesión</string>
-    
+
     <string name="R_Et_nombre_usuario">Nombre de Usuario</string>
     <string name="R_Et_email">Correo Electrónico</string>
     <string name="R_Et_password">Contraseña</string>
@@ -17,4 +17,8 @@
     <string name="L_Et_email">Correo electrónico</string>
     <string name="L_Et_password">Contraseña</string>
     <string name="Btn_Login">Ingresar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
+    <string name="Nombre_usuario">Nombre de usuario</string>
 </resources>

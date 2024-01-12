@@ -26,7 +26,7 @@ class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
-        supportActionBar!!.title = "Registro"
+        //supportActionBar!!.title = "Registro"
         inicializarVariables()
 
         Btn_registrar.setOnClickListener() {
@@ -89,11 +89,19 @@ class RegistroActivity : AppCompatActivity() {
                     val h_nombre_usuario: String = R_Et_nombre_usuario.text.toString()
                     val h_email: String = R_Et_email.text.toString()
 
-                    hashMap["udi"] = uid
+                    hashMap["uid"] = uid
                     hashMap["n_usuario"] = h_nombre_usuario
                     hashMap["h_email"] = h_email
                     hashMap["imagen"] = ""
                     hashMap["buscar"] = h_nombre_usuario.lowercase()
+
+                    /*Nuevos datos de usuario*/
+                    hashMap["nombres"] = ""
+                    hashMap["apellidos"] = ""
+                    hashMap["edad"] = ""
+                    hashMap["profesion"] = ""
+                    hashMap["domicilio"] = ""
+                    hashMap["estado"] = "offline"
 
                     reference.updateChildren(hashMap).addOnCompleteListener { task2 ->
                         if (task2.isSuccessful) {

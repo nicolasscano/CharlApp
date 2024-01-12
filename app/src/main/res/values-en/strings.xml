@@ -13,4 +13,5 @@
     <string name="L_Et_email">Email</string>
     <string name="L_Et_password">Contraseña</string>
     <string name="Btn_Login">Login</string>
+    <string name="Nombre_usuario">Username</string>
 </resources>
