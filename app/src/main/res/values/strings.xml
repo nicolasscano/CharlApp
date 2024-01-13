@@ -19,7 +19,7 @@
     <string name="L_Et_email">Correo electrónico</string>
     <string name="L_Et_password">Contraseña</string>
     <string name="Btn_Login">Ingresar</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
     <string name="Nombre_usuario">Nombre de usuario</string>
@@ -28,6 +28,18 @@
     <string name="Item_email_usuario">Email de usuario</string>
 
     <string name="Et_buscar_usuario">Buscar usuario...</string>
+    
+    <!--Perfil de usuario-->
+    <string name="P_n_usuario">Nombre de usuario</string>
+    <string name="P_email">Correo electrónico</string>
+    <string name="P_nombres">Nombres</string>
+    <string name="P_apellidos">Apellidos</string>
+    <string name="P_profesion">Profesion</string>
+    <string name="P_domicilio">Domicilio</string>
+    <string name="P_edad">Edad</string>
+    <string name="P_telefono">Telefono</string>
+    <string name="Btn_Guardar">Guardar</string>
 
 
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

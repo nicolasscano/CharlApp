@@ -19,4 +19,13 @@
     <string name="Et_buscar_usuario">Search user...</string>
     <string name="menu_perfil">User profile</string>
     <string name="menu_acerca_de">About</string>
+    <string name="P_n_usuario">Username</string>
+    <string name="P_email">Email</string>
+    <string name="P_nombres">Name</string>
+    <string name="P_apellidos">Surname</string>
+    <string name="P_profesion">Occupation</string>
+    <string name="P_domicilio">Adress</string>
+    <string name="P_edad">Age</string>
+    <string name="P_telefono">Phone number</string>
+    <string name="Btn_Guardar">Save</string>
 </resources>
