@@ -2,6 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menu_perfil"
+        android:title="@string/menu_perfil"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_acerca_de"
+        android:title="@string/menu_acerca_de"
+        >
+    </item>
+
+    <item
         android:id="@+id/menu_salir"
         android:title="@string/menu_salir">
 

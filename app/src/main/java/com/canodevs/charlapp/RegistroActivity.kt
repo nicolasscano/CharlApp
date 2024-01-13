@@ -91,7 +91,7 @@ class RegistroActivity : AppCompatActivity() {
 
                     hashMap["uid"] = uid
                     hashMap["n_usuario"] = h_nombre_usuario
-                    hashMap["h_email"] = h_email
+                    hashMap["email"] = h_email
                     hashMap["imagen"] = ""
                     hashMap["buscar"] = h_nombre_usuario.lowercase()
 
