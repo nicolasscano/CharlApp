@@ -28,7 +28,7 @@
     <string name="Item_email_usuario">Email de usuario</string>
 
     <string name="Et_buscar_usuario">Buscar usuario...</string>
-    
+
     <!--Perfil de usuario-->
     <string name="P_n_usuario">Nombre de usuario</string>
     <string name="P_email">Correo electrónico</string>
