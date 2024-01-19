@@ -28,4 +28,6 @@
     <string name="P_edad">Age</string>
     <string name="P_telefono">Phone number</string>
     <string name="Btn_Guardar">Save</string>
+    <string name="BtnElegirImagenDe">Choose profile picture</string>
+    <string name="BtnActualizarImagen">Update profile picture</string>
 </resources>

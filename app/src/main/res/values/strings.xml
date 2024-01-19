@@ -40,6 +40,18 @@
     <string name="P_telefono">Telefono</string>
     <string name="Btn_Guardar">Guardar</string>
 
+    <!--Editar imagen perfil-->
+
+    <string name="BtnElegirImagenDe">Elegir imagen de</string>
+    <string name="BtnActualizarImagen">Actualizar imagen</string>
+
+    <!--Cuadro de diálogo || seleccionar imagen de-->
+    
+    <string name="Txt_seleccionar_imagen">Seleccionar imagen de: </string>
+    <string name="Btn_abrir_galeria">Galería</string>
+    <string name="Btn_abrir_camara">Cámara</string>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
