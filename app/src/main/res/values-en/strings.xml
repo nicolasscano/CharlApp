@@ -30,4 +30,8 @@
     <string name="Btn_Guardar">Save</string>
     <string name="BtnElegirImagenDe">Choose profile picture</string>
     <string name="BtnActualizarImagen">Update profile picture</string>
+    <string name="Txt_seleccionar_imagen">Choose picture from:</string>
+    <string name="Btn_abrir_galeria">Galery</string>
+    <string name="Btn_abrir_camara">Camera</string>
+    <string name="N_usuario_chat">Username</string>
 </resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Chat.MensajesActivity">
+
+
+    <!--Imagen || Nombre de usuario-->
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500">
+            
+            <ImageView
+                android:id="@+id/imagen_perfil_chat"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_imagen_chat"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="10dp">
+            </ImageView>
+            
+            <TextView
+                android:id="@+id/N_usuario_chat"
+                android:text="@string/N_usuario_chat"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"
+                android:textColor="#fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    <!--Chats-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RV_chats"
+        android:layout_below="@id/toolbar_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    
+    <RelativeLayout
+        android:id="@+id/Enviar_Mensajes"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        
+        <ImageButton
+            android:id="@+id/IB_Adjuntar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true">
+
+        </ImageButton>
+        
+        <EditText
+            android:layout_toEndOf="@+id/IB_Adjuntar"
+            android:layout_toStartOf="@id/IB_Enviar"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/IB_Enviar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true">
+
+        </ImageButton>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

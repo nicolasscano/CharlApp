@@ -103,7 +103,11 @@ class EditarImagenPerfil : AppCompatActivity() {
             ).show()
 
         }.addOnFailureListener { e ->
-            Toast.makeText(applicationContext, "No se pudo actualizar su imagen debido a: ${e.message}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                applicationContext,
+                "No se pudo actualizar su imagen debido a: ${e.message}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
     }
