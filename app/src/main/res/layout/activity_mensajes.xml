@@ -41,27 +41,33 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV_chats"
         android:layout_below="@id/toolbar_chat"
+        android:layout_above="@id/RL_Enviar_Mensajes"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
     
     <RelativeLayout
-        android:id="@+id/Enviar_Mensajes"
+        android:id="@+id/RL_Enviar_Mensajes"
         android:padding="5dp"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        
+
+        <!--Adjuntar imagen-->
         <ImageButton
             android:id="@+id/IB_Adjuntar"
+            android:background="@drawable/ic_adjuntar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentStart="true">
 
         </ImageButton>
-        
+
+        <!--Escribir un mensaje-->
         <EditText
+            android:id="@+id/Et_mensaje"
+            android:hint="@string/Et_mensaje"
             android:layout_toEndOf="@+id/IB_Adjuntar"
             android:layout_toStartOf="@id/IB_Enviar"
             android:layout_centerVertical="true"
@@ -72,8 +78,10 @@
 
         </EditText>
 
+        <!--Enviar mensaje-->
         <ImageButton
             android:id="@+id/IB_Enviar"
+            android:background="@drawable/ic_enviar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true">

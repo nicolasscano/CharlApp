@@ -30,6 +30,7 @@
     <string name="Et_buscar_usuario">Buscar usuario...</string>
 
     <!--Perfil de usuario-->
+
     <string name="P_n_usuario">Nombre de usuario</string>
     <string name="P_email">Correo electrónico</string>
     <string name="P_nombres">Nombres</string>
@@ -52,8 +53,8 @@
     <string name="Btn_abrir_camara">Cámara</string>
 
     <!--Chat-->
+
     <string name="N_usuario_chat">Nombre de usuario</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Et_mensaje">Escriba un mensaje</string>
+    
 </resources>

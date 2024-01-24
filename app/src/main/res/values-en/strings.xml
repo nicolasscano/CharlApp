@@ -34,4 +34,5 @@
     <string name="Btn_abrir_galeria">Galery</string>
     <string name="Btn_abrir_camara">Camera</string>
     <string name="N_usuario_chat">Username</string>
+    <string name="Et_mensaje">Type a message</string>
 </resources>
