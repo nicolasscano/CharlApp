@@ -56,5 +56,9 @@
 
     <string name="N_usuario_chat">Nombre de usuario</string>
     <string name="Et_mensaje">Escriba un mensaje</string>
-    
+
+    <!--Item chat-->
+
+    <string name="TXT_ver_mensaje">¡Hola!, ¿Cómo estás?</string>
+
 </resources>
