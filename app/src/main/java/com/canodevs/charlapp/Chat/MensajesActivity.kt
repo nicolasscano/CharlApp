@@ -3,6 +3,7 @@ package com.canodevs.charlapp.Chat
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
+import android.net.UrlQuerySanitizer.ValueSanitizer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -13,7 +14,11 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.canodevs.charlapp.Adaptador.AdaptadorChat
+import com.canodevs.charlapp.Modelo.Chat
 import com.canodevs.charlapp.Modelo.Usuario
 import com.canodevs.charlapp.R
 import com.google.android.gms.tasks.Continuation
@@ -37,7 +42,11 @@ class MensajesActivity : AppCompatActivity() {
     private lateinit var IB_Enviar: ImageButton
     var uid_usuario_seleccionado: String = ""
     var firebaseUser: FirebaseUser? = null
-    private var imagenUri : Uri?= null
+    private var imagenUri: Uri? = null
+
+    lateinit var RV_chats: RecyclerView
+    var chatAdapter: AdaptadorChat? = null
+    var chatList: List<Chat>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,6 +125,12 @@ class MensajesActivity : AppCompatActivity() {
         IB_Adjuntar = findViewById(R.id.IB_Adjuntar)
         IB_Enviar = findViewById(R.id.IB_Enviar)
         firebaseUser = FirebaseAuth.getInstance().currentUser
+
+        RV_chats = findViewById(R.id.RV_chats)
+        RV_chats.setHasFixedSize(true)
+        var linearLayoutManager = LinearLayoutManager(applicationContext)
+        linearLayoutManager.stackFromEnd = true
+        RV_chats.layoutManager = linearLayoutManager
     }
 
     private fun leerInfoUsuarioSeleccionado() {
@@ -131,6 +146,8 @@ class MensajesActivity : AppCompatActivity() {
                 Glide.with(applicationContext).load(usuario.getImagen())
                     .placeholder(R.drawable.ic_item_usuario)
                     .into(imagen_perfil_chat)
+
+                recuperarMensajes(firebaseUser!!.uid, uid_usuario_seleccionado, usuario.getImagen())
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -138,6 +155,35 @@ class MensajesActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun recuperarMensajes(EmisorUid: String, ReceptorUid: String, ReceptorImagen: String?) {
+        chatList = ArrayList()
+        val reference = FirebaseDatabase.getInstance().reference.child("Chats")
+        reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                (chatList as ArrayList<Chat>).clear()
+                for (sn in snapshot.children) {
+                    val chat = sn.getValue(Chat::class.java)
+
+                    if (chat!!.getReceptor().equals(EmisorUid) && chat.getEmisor()
+                            .equals(ReceptorUid)
+                        || chat.getReceptor().equals(ReceptorUid) && chat.getEmisor()
+                            .equals(EmisorUid)
+                    ) {
+                        (chatList as ArrayList<Chat>).add(chat)
+                    }
+
+                    chatAdapter = AdaptadorChat(this@MensajesActivity, (chatList as ArrayList<Chat>), ReceptorImagen!!)
+                    RV_chats.adapter = chatAdapter
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+
     }
 
     private fun abrirGaleria() {
@@ -148,7 +194,7 @@ class MensajesActivity : AppCompatActivity() {
 
     private val galeriaARL = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback <ActivityResult> {resultado ->
+        ActivityResultCallback<ActivityResult> { resultado ->
             if (resultado.resultCode == RESULT_OK) {
                 val data = resultado.data
                 imagenUri = data!!.data
@@ -158,14 +204,15 @@ class MensajesActivity : AppCompatActivity() {
                 cargandoImagen.setCanceledOnTouchOutside(false)
                 cargandoImagen.show()
 
-                val carpetaImagenes = FirebaseStorage.getInstance().reference.child("Imágenes de mensajes")
+                val carpetaImagenes =
+                    FirebaseStorage.getInstance().reference.child("Imágenes de mensajes")
                 val reference = FirebaseDatabase.getInstance().reference
                 val idMensaje = reference.push().key
                 val nombreImagen = carpetaImagenes.child("$idMensaje.jpg")
 
                 val uploadTask: StorageTask<*>
                 uploadTask = nombreImagen.putFile(imagenUri!!)
-                uploadTask.continueWithTask (Continuation <UploadTask.TaskSnapshot, Task<Uri>>{ task->
+                uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
                     if (!task.isSuccessful) {
                         task.exception?.let {
                             throw it
@@ -173,7 +220,7 @@ class MensajesActivity : AppCompatActivity() {
                     }
                     return@Continuation nombreImagen.downloadUrl
 
-                }).addOnCompleteListener {task->
+                }).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         cargandoImagen.dismiss()
                         val downloadUrl = task.result
@@ -195,17 +242,20 @@ class MensajesActivity : AppCompatActivity() {
                                             .child(firebaseUser!!.uid)
                                             .child(uid_usuario_seleccionado)
 
-                                    listaMensajesEmisor.addListenerForSingleValueEvent(object : ValueEventListener {
+                                    listaMensajesEmisor.addListenerForSingleValueEvent(object :
+                                        ValueEventListener {
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             if (!snapshot.exists()) {
-                                                listaMensajesEmisor.child("uid").setValue(uid_usuario_seleccionado)
+                                                listaMensajesEmisor.child("uid")
+                                                    .setValue(uid_usuario_seleccionado)
                                             }
 
                                             val listaMensajesReceptor =
                                                 FirebaseDatabase.getInstance().reference.child("ListaMensajes")
                                                     .child(uid_usuario_seleccionado)
                                                     .child(firebaseUser!!.uid)
-                                            listaMensajesReceptor.child("uid").setValue(firebaseUser!!.uid)
+                                            listaMensajesReceptor.child("uid")
+                                                .setValue(firebaseUser!!.uid)
                                         }
 
                                         override fun onCancelled(error: DatabaseError) {
@@ -216,15 +266,22 @@ class MensajesActivity : AppCompatActivity() {
                                 }
 
                             }
-                        Toast.makeText(applicationContext, "Imagen enviada correctamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Imagen enviada correctamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                     }
 
                 }
 
-            }
-            else {
-                Toast.makeText(applicationContext, "Envío cancelado por el usuario", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "Envío cancelado por el usuario",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         }

@@ -74,13 +74,13 @@ class AdaptadorChat(contexto: Context, chatLista: List<Chat>, imagenUrl: String)
             if (chat.getEmisor().equals(firebaseUser!!.uid)) {
                 holder.TXT_ver_mensaje!!.visibility = View.GONE
                 holder.imagen_enviada_derecha!!.visibility = View.VISIBLE
-                Glide.with(contexto).load(chat.getUrl()).into(holder.imagen_enviada_derecha!!)
+                Glide.with(contexto).load(chat.getUrl()).placeholder(R.drawable.ic_imagen_enviada).into(holder.imagen_enviada_derecha!!)
             }
             // Condición para el usuario que nos envía una imagen como mensaje
             else if (!chat.getEmisor().equals(firebaseUser!!.uid)) {
                 holder.TXT_ver_mensaje!!.visibility = View.GONE
                 holder.imagen_enviada_izquierdo!!.visibility = View.VISIBLE
-                Glide.with(contexto).load(chat.getUrl()).into(holder.imagen_enviada_izquierdo!!)
+                Glide.with(contexto).load(chat.getUrl()).placeholder(R.drawable.ic_imagen_enviada).into(holder.imagen_enviada_izquierdo!!)
 
             }
         }
@@ -89,6 +89,14 @@ class AdaptadorChat(contexto: Context, chatLista: List<Chat>, imagenUrl: String)
             holder.TXT_ver_mensaje!!.text = chat.getMensaje()
         }
 
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (chatLista[position].getEmisor().equals(firebaseUser!!.uid)) {
+            1
+        } else {
+            0
+        }
     }
 
 }
