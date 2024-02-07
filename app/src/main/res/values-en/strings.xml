@@ -3,7 +3,8 @@
     <string name="app_name">CharlApp</string>
     <string name="welcome_msg">Welcome to CharlApp!</string>
     <string name="Btn_ir_registro">Don\'t have account? Sign Up!</string>
-    <string name="Btn_ir_logeo">Log In</string>
+    <string name="Btn_ir_logeo">Sign in with email</string>
+    <string name="Btn_login_google">Sign in with Google</string>
     <string name="R_Et_nombre_usuario">Username</string>
     <string name="R_Et_email">Email</string>
     <string name="R_Et_password">Password</string>
@@ -36,4 +37,6 @@
     <string name="N_usuario_chat">Username</string>
     <string name="Et_mensaje">Type a message</string>
     <string name="TXT_ver_mensaje">Hi! How are you?</string>
+    <string name="TXT_no_cuenta">Don\'t have an account?</string>
+    <string name="TXT_ir_registro">Sign up</string>
 </resources>

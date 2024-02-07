@@ -8,14 +8,15 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class Inicio : AppCompatActivity() {
 
     // Instanciamos 2 botones, uno para registro y otro para logeo
-    private lateinit var Btn_ir_registros: Button
-    private lateinit var Btn_ir_logeo: Button
+    private lateinit var Btn_ir_logeo: MaterialButton
+    private lateinit var Btn_login_google : MaterialButton
 
     var firebaseUser: FirebaseUser? = null
 
@@ -24,21 +25,19 @@ class Inicio : AppCompatActivity() {
         setContentView(R.layout.activity_inicio)
 
         // Asociamos cada botón por ID a su elemento del layout
-        Btn_ir_registros = findViewById(R.id.Btn_ir_registro)
         Btn_ir_logeo = findViewById(R.id.Btn_ir_logeo)
+        Btn_login_google = findViewById(R.id.Btn_login_google)
 
-        // Establecemos un Listener para que nos lleve a la pantalla de registro
-        Btn_ir_registros.setOnClickListener() {
-            val intent = Intent(this@Inicio, RegistroActivity::class.java)
-            Toast.makeText(applicationContext, "Pantalla de registro", Toast.LENGTH_SHORT).show()
-            startActivity(intent)
-        }
 
         // Establecemos un Listener para que nos lleve a la pantalla de login
         Btn_ir_logeo.setOnClickListener() {
             val intent = Intent(this@Inicio, LoginActivity::class.java)
             Toast.makeText(applicationContext, "Inicio de sesión", Toast.LENGTH_SHORT).show()
             startActivity(intent)
+        }
+
+        Btn_login_google.setOnClickListener {
+            Toast.makeText(applicationContext, "Inicio de sesión con Google", Toast.LENGTH_SHORT).show()
         }
     }
 

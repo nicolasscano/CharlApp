@@ -56,14 +56,31 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_Login"
             android:text="@string/Btn_Login"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </Button>
+        </com.google.android.material.button.MaterialButton>
+
+        <TextView
+            android:text="@string/TXT_no_cuenta"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:id="@+id/TXT_ir_registro"
+            android:text="@string/TXT_ir_registro"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
 
     </LinearLayout>
 

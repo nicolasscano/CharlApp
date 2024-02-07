@@ -3,8 +3,8 @@
     <string name="welcome_msg">¡Bienvenido a CharlApp!</string>
 
     <string name="nombre_desarrollador" translatable="false">Nicolás Cano de Celis</string>
-    <string name="Btn_ir_registro">¿No tienes cuenta? ¡Regístrate!</string>
-    <string name="Btn_ir_logeo">Iniciar sesión</string>
+    <string name="Btn_ir_logeo">Iniciar sesión con email</string>
+    <string name="Btn_login_google">Iniciar sesión con Google</string>
 
     <string name="R_Et_nombre_usuario">Nombre de Usuario</string>
     <string name="R_Et_email">Correo Electrónico</string>
@@ -19,6 +19,8 @@
     <string name="L_Et_email">Correo electrónico</string>
     <string name="L_Et_password">Contraseña</string>
     <string name="Btn_Login">Ingresar</string>
+    <string name="TXT_no_cuenta">¿No tienes cuenta?</string>
+    <string name="TXT_ir_registro">Registrarme</string>
 
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
