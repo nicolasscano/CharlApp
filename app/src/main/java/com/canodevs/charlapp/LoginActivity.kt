@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var L_Et_password: EditText
     private lateinit var Btn_login: Button
     private lateinit var auth: FirebaseAuth
-    private lateinit var TXT_ir_registro : TextView
+    private lateinit var TXT_ir_registro : MaterialButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

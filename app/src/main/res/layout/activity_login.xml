@@ -6,12 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="110dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_charlapp_background">
+
+        </ImageView>
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
         android:padding="10dp">
+
 
         <!--Email-->
         <com.google.android.material.textfield.TextInputLayout
@@ -60,8 +75,10 @@
             android:id="@+id/Btn_Login"
             android:text="@string/Btn_Login"
             android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/registrarse"
+            android:textStyle="bold">
 
         </com.google.android.material.button.MaterialButton>
 
@@ -69,18 +86,20 @@
             android:text="@string/TXT_no_cuenta"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold">
         </TextView>
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/TXT_ir_registro"
             android:text="@string/TXT_ir_registro"
             android:layout_marginTop="10dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        </TextView>
+        </com.google.android.material.button.MaterialButton>
 
     </LinearLayout>
 
