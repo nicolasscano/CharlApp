@@ -35,7 +35,8 @@
             android:text="@string/Btn_ir_logeo"
             android:layout_width="280dp"
             app:icon="@drawable/email_icon"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp">
 
         </com.google.android.material.button.MaterialButton>
 
@@ -49,7 +50,17 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/Terminos_y_condiciones"
+                android:textColor="@color/white"
+                android:textStyle="bold">
+
+            </RadioButton>
 
         </RelativeLayout>
 

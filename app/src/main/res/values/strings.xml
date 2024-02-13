@@ -66,4 +66,8 @@
 
     <string name="TXT_ver_mensaje">¡Hola!, ¿Cómo estás?</string>
 
+    <!--Términos y condiciones-->
+
+    <string name="Terminos_y_condiciones" translatable="false">Acepto los términos y condiciones para el uso personal de la presente aplicación</string>
+
 </resources>
