@@ -39,4 +39,5 @@
     <string name="TXT_ver_mensaje">Hi! How are you?</string>
     <string name="TXT_no_cuenta">Don\'t have an account?</string>
     <string name="TXT_ir_registro">Sign up</string>
+    <string name="P_proveedor_txt">"Provider: "</string>
 </resources>

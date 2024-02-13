@@ -16,7 +16,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_ir_logeo"
             android:text="@string/Btn_ir_logeo"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
+            app:icon="@drawable/email_icon"
             android:layout_height="wrap_content">
 
         </com.google.android.material.button.MaterialButton>
@@ -24,7 +25,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Btn_login_google"
             android:text="@string/Btn_login_google"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
+            app:icon="@drawable/login_google"
             android:layout_height="wrap_content">
         </com.google.android.material.button.MaterialButton>
 
