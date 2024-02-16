@@ -46,6 +46,11 @@
     <string name="P_telefono">Telefono</string>
     <string name="Btn_Guardar">Guardar</string>
 
+    <!--Cd - Establecer teléfono-->
+
+    <string name="Establecer_telefono">Escribe tu número</string>
+    <string name="Btn_aceptar_Telefono">Aceptar</string>
+
     <!--Editar imagen perfil-->
 
     <string name="BtnElegirImagenDe">Elegir imagen de</string>

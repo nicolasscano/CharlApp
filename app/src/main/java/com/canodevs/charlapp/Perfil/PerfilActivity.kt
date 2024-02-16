@@ -1,5 +1,6 @@
 package com.canodevs.charlapp.Perfil
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.disklrucache.DiskLruCache.Value
 import com.canodevs.charlapp.Modelo.Usuario
 import com.canodevs.charlapp.R
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -19,23 +21,30 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.hbb20.CountryCodePicker
 
 class PerfilActivity : AppCompatActivity() {
 
     private lateinit var P_Imagen: ImageView
     private lateinit var P_n_usuario: TextView
     private lateinit var P_email: TextView
+    private lateinit var P_proveedor : TextView
     private lateinit var P_nombres: EditText
     private lateinit var P_apellidos: EditText
     private lateinit var P_profesion: EditText
     private lateinit var P_domicilio: EditText
     private lateinit var P_edad: EditText
-    private lateinit var P_telefono: EditText
+    private lateinit var P_telefono: TextView
     private lateinit var Btn_guardar: Button
     private lateinit var Editar_imagen: ImageView
+    private lateinit var Editar_Telefono : ImageView
 
     var user: FirebaseUser? = null
     var reference: DatabaseReference? = null
+
+    private var codigoTel = ""
+    private var numeroTel = ""
+    private var codigo_numero_Tel = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +59,51 @@ class PerfilActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, EditarImagenPerfil::class.java)
             startActivity(intent)
         }
+
+        Editar_Telefono.setOnClickListener {
+            establecerNumTel()
+        }
+    }
+
+    private fun establecerNumTel() {
+
+        // Declarar vistas del cuadro diálogo
+        val Establecer_Telefono : EditText
+        val SelectorCodPais : CountryCodePicker
+        val Btn_aceptar_Telefono : MaterialButton
+
+        val dialog = Dialog (this@PerfilActivity)
+
+        // Conexión con el diseño
+        dialog.setContentView(R.layout.cuadro_d_establecer_tel)
+
+        // Inicializar vistas
+        Establecer_Telefono = dialog.findViewById(R.id.Establecer_telefono)
+        SelectorCodPais = dialog.findViewById(R.id.SelectorCodigoPais)
+        Btn_aceptar_Telefono = dialog.findViewById(R.id.Btn_aceptar_Telefono)
+
+        // Asignar un evento a un boton
+        Btn_aceptar_Telefono.setOnClickListener {
+            codigoTel = SelectorCodPais.selectedCountryCodeWithPlus
+            numeroTel = Establecer_Telefono.text.toString().trim()
+            codigo_numero_Tel = codigoTel + numeroTel
+            if (numeroTel.isEmpty()) {
+                Toast.makeText(applicationContext, "Ingrese su número de teléfono", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            } else {
+                P_telefono.text = codigo_numero_Tel
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
+        dialog.setCanceledOnTouchOutside(false)
     }
 
     private fun inicializarVariables() {
         P_Imagen = findViewById(R.id.P_imagen)
         P_n_usuario = findViewById(R.id.P_n_usuario)
+        P_proveedor = findViewById(R.id.P_proveedor)
         P_email = findViewById(R.id.P_email)
         P_nombres = findViewById(R.id.P_nombres)
         P_apellidos = findViewById(R.id.P_apellidos)
@@ -64,6 +113,7 @@ class PerfilActivity : AppCompatActivity() {
         P_telefono = findViewById(R.id.P_telefono)
         Btn_guardar = findViewById(R.id.Btn_Guardar)
         Editar_imagen = findViewById(R.id.Editar_imagen)
+        Editar_Telefono = findViewById(R.id.Editar_Telefono)
 
         user = FirebaseAuth.getInstance().currentUser
         reference = FirebaseDatabase.getInstance().reference.child("Usuarios").child(user!!.uid)
@@ -78,6 +128,7 @@ class PerfilActivity : AppCompatActivity() {
                     val usuario: Usuario? = snapshot.getValue(Usuario::class.java)
                     val str_n_usuario = usuario!!.getN_Usuario()
                     val str_email = usuario.getEmail()
+                    val str_proveedor = usuario.getProveedor()
                     val str_nombres = usuario.getNombres()
                     val str_apellidos = usuario.getApellidos()
                     val str_profesion = usuario.getProfesion()
@@ -88,6 +139,7 @@ class PerfilActivity : AppCompatActivity() {
                     // Seteamos la info en las vistas XML
                     P_n_usuario.text = str_n_usuario
                     P_email.text = str_email
+                    P_proveedor.text = str_proveedor
                     P_nombres.setText(str_nombres)
                     P_apellidos.setText(str_apellidos)
                     P_profesion.setText(str_profesion)

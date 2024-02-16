@@ -29,6 +29,7 @@
     <string name="P_edad">Age</string>
     <string name="P_telefono">Phone number</string>
     <string name="Btn_Guardar">Save</string>
+    <string name="Establecer_telefono">Type your number</string>
     <string name="BtnElegirImagenDe">Choose profile picture</string>
     <string name="BtnActualizarImagen">Update profile picture</string>
     <string name="Txt_seleccionar_imagen">Choose picture from:</string>
@@ -40,4 +41,5 @@
     <string name="TXT_no_cuenta">Don\'t have an account?</string>
     <string name="TXT_ir_registro">Sign up</string>
     <string name="P_proveedor_txt">"Provider: "</string>
+    <string name="Btn_aceptar_Telefono">Accept</string>
 </resources>

@@ -4,6 +4,7 @@ class Usuario {
     private var uid : String = ""
     private var n_usuario : String = ""
     private var email : String = ""
+    private var proveedor : String = ""
     private var telefono : String = ""
     private var imagen : String = ""
     private var buscar : String = ""
@@ -19,6 +20,7 @@ class Usuario {
         uid: String,
         n_usuario: String,
         email: String,
+        proveedor: String,
         telefono: String,
         imagen: String,
         buscar: String,
@@ -31,6 +33,7 @@ class Usuario {
         this.uid = uid
         this.n_usuario = n_usuario
         this.email = email
+        this.proveedor = proveedor
         this.telefono = telefono
         this.imagen = imagen
         this.buscar = buscar
@@ -66,8 +69,16 @@ class Usuario {
         this.email = email
     }
 
+    fun getProveedor () : String {
+        return proveedor
+    }
+
     fun getTelefono() : String?{
         return telefono
+    }
+
+    fun setProveedor (proveedor : String) {
+        this.proveedor = proveedor
     }
 
     fun setTelefono(telefono : String){
