@@ -1,35 +1,36 @@
-[In Development] CharlApp - Android Messaging App
+
+📱 CharlApp - Android Messaging App
 
 🚀 Introduction
-Welcome to the WhatsApp Clone repository! This project is an Android messaging app designed to mimic the functionality and design of WhatsApp. Our goal is to provide a robust, scalable, and secure messaging platform with real-time chat capabilities.
+Welcome to the CharlApp repository! This project is an Android messaging app designed to replicate the core functionalities and design aesthetics of WhatsApp. Our aim is to create a robust, scalable, and secure messaging platform with real-time communication capabilities.
 
-📱 Features
-Real-time Messaging: Seamless real-time chat experience.
-Multimedia Sharing: Share photos, videos, and other media files.
-Group Chats: Create and manage group conversations. (Coming soon)
-Voice and Video Calls: High-quality voice and video calling. (Coming soon)
-Status Updates: Share your status with friends and family. (Coming soon)
-Push Notifications: Stay updated with instant notifications.
-User Profiles: Customize your profile with photos and status messages.
+✨ Features:
+📩 Real-time Messaging: Experience seamless real-time chat.
+📷 Multimedia Sharing: Share photos, videos, and other media files effortlessly.
+📞 Voice and Video Calls: Enjoy high-quality voice and video calling.
+📊 Status Updates: Share your status with friends and family.
+📲 Push Notifications: Get instant updates with real-time notifications.
+🙋 User Profiles: Customize your profile with photos and status messages.
+
 🛠️ Technologies Used
-Programming Language: Kotlin
-UI Design: Material Design
+Languages: Kotlin
+UI/UX: XML, Material Design
 Backend: Firebase Firestore, Firebase Authentication
 Realtime Database: Firebase Realtime Database
 Push Notifications: Firebase Cloud Messaging (FCM)
+
 📖 Getting Started
 Prerequisites
 Android Studio
 Java Development Kit (JDK)
-Firebase account
+Firebase Account
+
 Installation
-Clone the Repository
-Copy code
-git clone https://github.com/nicolasscano/charlapp.git
+Clone the Repository: git clone https://github.com/nicolasscano/charlapp.git
 cd charlapp
 Open in Android Studio
 
-Open Android Studio and select Open an existing Android Studio project. Navigate to the cloned repository folder and open it.
+Launch Android Studio and select Open an existing Android Studio project. Navigate to the cloned repository folder and open it.
 
 Configure Firebase
 
@@ -40,3 +41,18 @@ Enable Firebase Authentication, Firestore Database, Realtime Database, and Cloud
 Build and Run the App
 
 Click on the Run button in Android Studio to build and run the app on your emulator or physical device.
+
+🌟 Contributing
+We welcome contributions! If you have ideas, suggestions, or bug fixes, feel free to submit a pull request. Ensure your code adheres to our coding standards and includes appropriate tests.
+
+How to Contribute
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes and commit (git commit -m 'Add some feature').
+Push to the branch (git push origin feature-branch).
+Open a pull request.
+
+📧 Contact
+For any queries or support, feel free to reach out:
+Email: nicolascanodc@gmail.com
+LinkedIn: Your https://www.linkedin.com/in/nicol%C3%A1s-cano-de-celis-54a18a230/
