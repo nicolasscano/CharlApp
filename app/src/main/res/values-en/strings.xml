@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">CharlApp</string>
     <string name="welcome_msg">Welcome to CharlApp!</string>
+    <string name="Terminos_y_condiciones">I accept terms and conditions for personal use of this app</string>
     <string name="Btn_ir_registro">Don\'t have account? Sign Up!</string>
     <string name="Btn_ir_logeo">Sign in with email</string>
     <string name="Btn_login_google">Sign in with Google</string>
@@ -30,6 +31,7 @@
     <string name="P_telefono">Phone number</string>
     <string name="Btn_Guardar">Save</string>
     <string name="Establecer_telefono">Type your number</string>
+    <string name="CuentaVerificadaTXT">Account verified</string>
     <string name="BtnElegirImagenDe">Choose profile picture</string>
     <string name="BtnActualizarImagen">Update profile picture</string>
     <string name="Txt_seleccionar_imagen">Choose picture from:</string>
@@ -42,4 +44,6 @@
     <string name="TXT_ir_registro">Sign up</string>
     <string name="P_proveedor_txt">"Provider: "</string>
     <string name="Btn_aceptar_Telefono">Accept</string>
+    <string name="Btn_verificar">Not verified</string>
+    <string name="BtnEntendidoVerificado">Understood</string>
 </resources>

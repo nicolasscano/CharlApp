@@ -1,5 +1,6 @@
 package com.canodevs.charlapp
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,6 +24,9 @@ class RegistroActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var reference: DatabaseReference
 
+    // ProgressDialog para el registro
+    private lateinit var progressDialog: ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
@@ -43,6 +47,11 @@ class RegistroActivity : AppCompatActivity() {
 
         // Creamos la instancia de Firebase Authentication
         auth = FirebaseAuth.getInstance()
+
+        // Config del progressDialog
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Registrando usuario...")
+        progressDialog.setCanceledOnTouchOutside(false)
     }
 
     private fun validarDatos() {
@@ -77,9 +86,12 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun registrarUsuario(email: String, password: String) {
+        progressDialog.setMessage("Espere, por favor...")
+        progressDialog.show()
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    progressDialog.dismiss()
                     var uid: String = ""
                     uid = auth.currentUser!!.uid
                     reference =
@@ -124,6 +136,7 @@ class RegistroActivity : AppCompatActivity() {
 
                     }
                 } else {
+                    progressDialog.dismiss()
                     Toast.makeText(
                         applicationContext,
                         "Ha ocurrido un error",
@@ -133,6 +146,7 @@ class RegistroActivity : AppCompatActivity() {
 
             }
             .addOnFailureListener { e ->
+                progressDialog.dismiss()
                 Toast.makeText(
                     applicationContext,
                     "${e.message}",

@@ -45,11 +45,16 @@
     <string name="P_edad">Edad</string>
     <string name="P_telefono">Telefono</string>
     <string name="Btn_Guardar">Guardar</string>
+    <string name="Btn_verificar">No verificado</string>
 
     <!--Cd - Establecer teléfono-->
 
     <string name="Establecer_telefono">Escribe tu número</string>
     <string name="Btn_aceptar_Telefono">Aceptar</string>
+
+    <!--Cd - Cuenta verificada-->
+    <string name="CuentaVerificadaTXT">Cuenta verificada</string>
+    <string name="BtnEntendidoVerificado">Entendido</string>
 
     <!--Editar imagen perfil-->
 
@@ -73,6 +78,7 @@
 
     <!--Términos y condiciones-->
 
-    <string name="Terminos_y_condiciones" translatable="false">Acepto los términos y condiciones para el uso personal de la presente aplicación</string>
+    <string name="Terminos_y_condiciones">Acepto los términos y condiciones para el uso personal de la presente aplicación</string>
+    <string name="Btn_ir_registro">¿No tienes cuenta? ¡Regístrate!</string>
 
 </resources>

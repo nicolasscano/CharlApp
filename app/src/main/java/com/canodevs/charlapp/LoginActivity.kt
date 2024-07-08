@@ -1,5 +1,6 @@
 package com.canodevs.charlapp
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var Btn_login: Button
     private lateinit var auth: FirebaseAuth
     private lateinit var TXT_ir_registro : MaterialButton
+
+
+    private lateinit var progressDialog : ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -42,6 +47,11 @@ class LoginActivity : AppCompatActivity() {
         Btn_login = findViewById(R.id.Btn_Login)
         auth = FirebaseAuth.getInstance()
         TXT_ir_registro = findViewById(R.id.TXT_ir_registro)
+
+        // Config del progress dialog del login
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Iniciando sesión...")
+        progressDialog.setCanceledOnTouchOutside(false)
     }
 
     private fun ValidarDatos() {
@@ -62,9 +72,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun LoginUsuario(email: String, password: String) {
+        progressDialog.setMessage("Espere por favor")
+        progressDialog.show()
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    progressDialog.dismiss()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     Toast.makeText(
                         applicationContext,
@@ -74,6 +87,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
+                    progressDialog.dismiss()
                     Toast.makeText(
                         applicationContext,
                         "Ha ocurrido un error",
@@ -81,6 +95,7 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
             }.addOnFailureListener { e ->
+                progressDialog.dismiss()
                 Toast.makeText(
                     applicationContext,
                     "{${e.message}}",

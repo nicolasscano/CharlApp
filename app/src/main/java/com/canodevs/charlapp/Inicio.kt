@@ -37,6 +37,8 @@ class Inicio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
 
+        auth = FirebaseAuth.getInstance()
+
         // Asociamos cada botón por ID a su elemento del layout
         Btn_ir_logeo = findViewById(R.id.Btn_ir_logeo)
         Btn_login_google = findViewById(R.id.Btn_login_google)
