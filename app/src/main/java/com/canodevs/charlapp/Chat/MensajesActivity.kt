@@ -6,6 +6,9 @@ import android.net.Uri
 import android.net.UrlQuerySanitizer.ValueSanitizer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -14,12 +17,14 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.canodevs.charlapp.Adaptador.AdaptadorChat
 import com.canodevs.charlapp.Modelo.Chat
 import com.canodevs.charlapp.Modelo.Usuario
+import com.canodevs.charlapp.Perfil.PerfilVisitado
 import com.canodevs.charlapp.R
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
@@ -27,6 +32,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
@@ -48,6 +54,9 @@ class MensajesActivity : AppCompatActivity() {
     var chatAdapter: AdaptadorChat? = null
     var chatList: List<Chat>? = null
 
+    var reference: DatabaseReference? = null
+    var seenListener: ValueEventListener? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mensajes)
@@ -68,6 +77,8 @@ class MensajesActivity : AppCompatActivity() {
         IB_Adjuntar.setOnClickListener {
             abrirGaleria()
         }
+
+        mensajeVisto(uid_usuario_seleccionado)
     }
 
     private fun obtenerUid() {
@@ -119,6 +130,11 @@ class MensajesActivity : AppCompatActivity() {
     }
 
     private fun inicializarVistas() {
+
+        val toolbar : Toolbar = findViewById(R.id.toolbar_chat)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = ""
+
         imagen_perfil_chat = findViewById(R.id.imagen_perfil_chat)
         N_usuario_chat = findViewById(R.id.N_usuario_chat)
         Et_mensaje = findViewById(R.id.Et_mensaje)
@@ -174,7 +190,11 @@ class MensajesActivity : AppCompatActivity() {
                         (chatList as ArrayList<Chat>).add(chat)
                     }
 
-                    chatAdapter = AdaptadorChat(this@MensajesActivity, (chatList as ArrayList<Chat>), ReceptorImagen!!)
+                    chatAdapter = AdaptadorChat(
+                        this@MensajesActivity,
+                        (chatList as ArrayList<Chat>),
+                        ReceptorImagen!!
+                    )
                     RV_chats.adapter = chatAdapter
                 }
             }
@@ -184,6 +204,28 @@ class MensajesActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    private fun mensajeVisto(usuarioUid: String) {
+        reference = FirebaseDatabase.getInstance().reference.child("Chats")
+        seenListener = reference!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val chat = dataSnapshot.getValue(Chat::class.java)
+                    if (chat!!.getReceptor().equals(firebaseUser!!.uid) && chat!!.getEmisor()
+                            .equals(usuarioUid)
+                    ) {
+                        val hashMap = HashMap<String, Any>()
+                        hashMap["visto"] = true
+                        dataSnapshot.ref.updateChildren(hashMap)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     private fun abrirGaleria() {
@@ -286,5 +328,30 @@ class MensajesActivity : AppCompatActivity() {
 
         }
     )
+
+    override fun onPause() {
+        super.onPause()
+        reference!!.removeEventListener(seenListener!!)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_visitar_perfil, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_visitar -> {
+                val intent = Intent(applicationContext, PerfilVisitado::class.java)
+                startActivity(intent)
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+
+    }
+
 
 }

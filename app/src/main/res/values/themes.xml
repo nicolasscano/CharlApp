@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.CharlApp" parent="Base.Theme.CharlApp" />
+    <!--<style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar" />-->
 </resources>

@@ -14,14 +14,16 @@ import com.canodevs.charlapp.Chat.MensajesActivity
 import com.canodevs.charlapp.Modelo.Usuario
 import com.canodevs.charlapp.R
 
-class AdapadorUsuario (context: Context, listaUsuarios: List<Usuario>) : RecyclerView.Adapter<AdapadorUsuario.ViewHolder?>() {
+class AdapadorUsuario (context: Context, listaUsuarios: List<Usuario>, chatLeido: Boolean) : RecyclerView.Adapter<AdapadorUsuario.ViewHolder?>() {
 
     private val context: Context
     private val listaUsuarios : List<Usuario>
+    private var chatLeido : Boolean
 
     init {
         this.context = context
         this.listaUsuarios = listaUsuarios
+        this.chatLeido = chatLeido
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

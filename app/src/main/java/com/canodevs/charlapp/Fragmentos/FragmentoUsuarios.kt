@@ -80,7 +80,7 @@ class FragmentoUsuarios : Fragment() {
                             (usuarioLista as ArrayList<Usuario>).add(usuario)
                         }
                     }
-                    usuarioAdaptador = AdapadorUsuario(context!!, usuarioLista!!)
+                    usuarioAdaptador = AdapadorUsuario(context!!, usuarioLista!!, false)
                     rvUsuarios!!.adapter = usuarioAdaptador
                 }
 
@@ -107,7 +107,7 @@ class FragmentoUsuarios : Fragment() {
                         (usuarioLista as ArrayList<Usuario>).add(usuario)
                     }
                 }
-                usuarioAdaptador = AdapadorUsuario(context!!, usuarioLista!!)
+                usuarioAdaptador = AdapadorUsuario(context!!, usuarioLista!!, false)
                 rvUsuarios!!.adapter = usuarioAdaptador
             }
 

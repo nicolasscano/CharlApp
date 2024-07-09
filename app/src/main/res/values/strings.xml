@@ -17,6 +17,8 @@
     <string name="menu_acerca_de">Acerca de</string>
     <string name="menu_salir">Cerrar sesión</string>
 
+    <string name="menu_visitar">Visitar perfil</string>
+
     <string name="L_Et_email">Correo electrónico</string>
     <string name="L_Et_password">Contraseña</string>
     <string name="Btn_Login">Ingresar</string>
@@ -72,6 +74,15 @@
     <string name="N_usuario_chat">Nombre de usuario</string>
     <string name="Et_mensaje">Escriba un mensaje</string>
 
+    <string name="PV_Perfil_TXT">Perfil de usuario</string>
+    <string name="PV_NombreU">Nombre de usuario</string>
+    <string name="PV_EmailU">Email de usuario</string>
+    <string name="PV_Uid_TXT">Identificador: </string>
+    <string name="PV_Uid" translatable="false">Uid</string>
+
+
+
+
     <!--Item chat-->
 
     <string name="TXT_ver_mensaje">¡Hola!, ¿Cómo estás?</string>
@@ -80,5 +91,6 @@
 
     <string name="Terminos_y_condiciones">Acepto los términos y condiciones para el uso personal de la presente aplicación</string>
     <string name="Btn_ir_registro">¿No tienes cuenta? ¡Regístrate!</string>
+    <string name="title_activity_perfil_visitado">PerfilVisitado</string>
 
 </resources>

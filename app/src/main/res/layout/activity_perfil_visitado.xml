@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Perfil.PerfilVisitado">
+    
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        
+        <TextView
+            android:text="@string/PV_Perfil_TXT"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <!--Imagen de perfil del usuario-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/imagen_usuario_visitado">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <!--Nombre de usuario-->
+        <TextView
+            android:id="@+id/Nombre_usuario"
+            android:text="@string/Nombre_usuario"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <!--Email de usuario-->
+        <TextView
+            android:id="@+id/PV_EmailU"
+            android:text="@string/PV_EmailU"
+            android:textSize="18sp"
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/PV_Uid_TXT"
+            android:text="@string/PV_Uid_TXT"
+            android:layout_marginTop="3dp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <!--Uid de usuario-->
+        <TextView
+            android:id="@+id/PV_Uid"
+            android:textSize="15sp"
+            android:layout_marginTop="3dp"
+            android:text="@string/PV_Uid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        
+        <View
+            android:layout_width="350dp"
+            android:layout_height="2dp"
+            android:background="@color/purple_500"
+            android:layout_marginTop="10dp">
+
+        </View>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
